@@ -26,8 +26,8 @@ spec:
           #            value: ""
         volumeMounts:
         - name: k8s-pv02 
-          mountPath: /root/.flowise/storage
-          subPath: flowise/storage
+          mountPath: /root/.flowise
+          subPath: flowise/.flowise
       volumes:
       - name: k8s-pv02 
         persistentVolumeClaim:
