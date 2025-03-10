@@ -13,9 +13,18 @@ spec:
       labels:
         app: flowise
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: tpu
+                operator: NotIn
+                values:
+                - "true"
       containers:
       - name: flowise
-        image: flowiseai/flowise 
+        image: flowiseai/flowise:2.2.5
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
